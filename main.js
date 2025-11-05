@@ -66,22 +66,58 @@ setInterval(nextSlide, 4000);
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // SUBSCRIBE FORM
-document
-    .getElementById("subscribeForm")
-    .addEventListener("submit", async (e) => {
-        e.preventDefault();
+document.getElementById("subscribeForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-        const email = document.getElementById("email").value;
+  const emailInput = document.getElementById("email");
+  const subscribeBtn = e.target.querySelector("button");
+  const popup = document.getElementById("subscribePopup");
+  const closePopup = document.getElementById("closePopup");
+  const email = emailInput.value.trim();
 
-        const response = await fetch("/subscribe", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email }),
-        });
+  if (!email) {
+    alert("⚠️ Please enter a valid email address.");
+    return;
+  }
 
-        const data = await response.json();
-        alert(data.message);
+  subscribeBtn.disabled = true;
+  subscribeBtn.textContent = "Subscribing...";
+
+  try {
+    const response = await fetch("/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
     });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      emailInput.value = "";
+      // Show custom popup
+      popup.style.display = "flex";
+
+      // Auto close after 3 seconds
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 3000);
+    } else {
+      alert(" " + (data.message || "Something went wrong!"));
+    }
+  } catch (error) {
+    console.error("Subscription error:", error);
+    alert("Unable to connect to the server. Please try again later.");
+  } finally {
+    subscribeBtn.disabled = false;
+    subscribeBtn.textContent = "Subscribe";
+  }
+
+  // Manual close button
+  closePopup.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+});
+
 
 
 // ABOUT US
@@ -126,3 +162,13 @@ window.addEventListener("DOMContentLoaded", () => {
         icon.classList.add("fa-times");
     }
 });
+
+
+
+     
+
+
+
+
+
+

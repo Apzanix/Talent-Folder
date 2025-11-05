@@ -11,6 +11,11 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--light);
         }
+  .demo-btn {
+  text-decoration: none;
+  display: inline-block; 
+}
+
 
         /* Navbar */
         .navbar {
@@ -1062,3 +1067,576 @@
                 width: 100%;
             }
         }
+
+
+
+
+/* 
+        MAIN ABOUT US PAGE */
+
+        
+/* HERO SECTION */
+        .odd-hero {
+            position: relative;
+            background: url("img/abth1.jpg") center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 160px 20px;
+            overflow: hidden;
+        }
+
+        .odd-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 15, 40, 0.8);
+            backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+
+        .odd-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .odd-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #d1d8e0;
+        }
+
+        .odd-heading {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            font-weight: 500;
+            margin-bottom: 40px;
+            color: #e8ebf0;
+        }
+
+        .odd-btn {
+            display: inline-block;
+            background: #ff6b2c;
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .odd-btn:hover {
+            background: #ff8533;
+            box-shadow: 0 4px 15px rgba(255, 107, 26, 0.5);
+        }
+
+        .odd-icons {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 80px;
+        }
+
+        .odd-icon i {
+            font-size: 2.5rem;
+            color: #ff6b2c;
+        }
+
+        /* Subtle Up-Down Animations */
+        @keyframes odd-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .odd-anim1 {
+            animation: odd-float 3s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+
+        .odd-anim2 {
+            animation: odd-float 3s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .odd-anim3 {
+            animation: odd-float 3s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        /* Journey Section  */
+      .odd-journey {
+  position: relative;
+  background: url('img/journeyabt.png') center/cover no-repeat;
+  color: #042b4a;
+  padding: 120px 80px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.odd-journey-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75); /* White overlay for brightness */
+  z-index: 1;
+}
+
+.odd-journey-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  gap: 80px;
+  background: rgba(255, 255, 255, 0.95); /* White card-style background */
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.odd-journey-image img {
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease;
+}
+
+.odd-journey-image img:hover {
+  transform: scale(1.02);
+}
+
+.odd-journey-content {
+  max-width: 600px;
+}
+
+.odd-journey-content h4 {
+  font-size: 1.5rem;
+  color: #042b4a;
+  margin-bottom: 10px;
+}
+
+.odd-journey-line {
+  width: 80px;
+  height: 3px;
+  background-color: #ff6b35;
+  margin-bottom: 25px;
+  border-radius: 2px;
+}
+
+.odd-journey-content p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #042b4a;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .odd-journey-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .odd-journey-image img {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+/* odd drive section */ 
+.odd-drive {
+  background-color: #0f2b4a;
+  padding: 120px 60px;
+  color: #fff;
+  text-align: center;
+}
+
+.odd-drive-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.odd-drive h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.odd-drive-line {
+  width: 80px;
+  height: 3px;
+  background-color: #ff6b35;
+  margin: 0 auto 60px auto;
+  border-radius: 2px;
+}
+
+.odd-drive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 60px; /* Increased spacing between cards */
+  justify-items: center;
+}
+
+.odd-drive-card {
+  background: #ffffff;
+  color: #042b4a;
+  border-radius: 24px;
+  padding: 50px 16px;
+  text-align: center;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.odd-drive-card:hover {
+   box-shadow: 0 15px 45px rgba(255, 107, 53, 0.55);
+  transform: translateY(-8px);
+}
+
+.odd-drive-icon {
+  background: linear-gradient(135deg, #ff6b35, #ff944d);
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 20px;
+  border-radius: 14px;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.odd-drive-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+  color: #042b4a;
+}
+
+.odd-drive-card p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #042b4a;
+}
+
+@media (max-width: 900px) {
+  .odd-drive {
+    padding: 90px 30px;
+  }
+
+  .odd-drive-grid {
+    gap: 40px; /* slightly smaller for mobile */
+  }
+
+  .odd-drive-card {
+    max-width: 100%;
+    padding: 40px 30px;
+  }
+}
+
+/* COUNTER SECTION */
+   
+    .odd-bg {
+        background-color: #042b4a;
+        color: var(--light);
+        text-align: center;
+        padding: 100px 20px;
+    }
+
+    .odd-bg h2 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .underline {
+        width: 80px;
+        height: 4px;
+        background: var(--orange);
+        margin: 0 auto 60px auto;
+        border-radius: 2px;
+    }
+
+    .impact-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 100px;
+    }
+
+    .impact-item {
+        text-align: center;
+        flex: 1;
+        min-width: 200px;
+        max-width: 250px;
+    }
+
+    .impact-icon {
+        font-size: 60px;
+        color: var(--orange);
+        margin-bottom: 20px;
+    }
+
+    .counter {
+        font-size: 64px;
+        font-weight: 600;
+        color: var(--orange);
+    }
+
+    .impact-text {
+        font-size: 20px;
+        margin-top: 10px;
+        color: var(--light);
+        opacity: 0.9;
+    }
+
+    .impact-icon, .counter {
+        text-shadow: 0 0 10px rgba(255, 107, 26, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .impact-grid {
+            gap: 50px;
+        }
+        .counter {
+            font-size: 48px;
+        }
+        .impact-icon {
+            font-size: 50px;
+        }
+    }
+
+
+    /* MAIN INDUSTRY PAGE */
+    /* HERO SECTION */
+        .odd-hero {
+            position: relative;
+            background: url("img/industries\ .png") center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 160px 20px;
+            overflow: hidden;
+        }
+
+        .odd-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 15, 40, 0.8);
+            backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+
+        .odd-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .odd-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #d1d8e0;
+        }
+
+        .odd-heading {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            font-weight: 500;
+            margin-bottom: 40px;
+            color: #e8ebf0;
+        }
+
+        .odd-btn {
+            display: inline-block;
+            background: #ff6b2c;
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .odd-btn:hover {
+            background: #ff8533;
+            box-shadow: 0 4px 15px rgba(255, 107, 26, 0.5);
+        }
+
+        .odd-icons {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 80px;
+        }
+
+        .odd-icon i {
+            font-size: 2.5rem;
+            color: #ff6b2c;
+        }
+
+        /* Subtle Up-Down Animations */
+        @keyframes odd-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .odd-anim1 {
+            animation: odd-float 3s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+
+        .odd-anim2 {
+            animation: odd-float 3s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .odd-anim3 {
+            animation: odd-float 3s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+
+
+        /* MAIN CONTACT SECTION */
+       .odd-contact-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 15px;
+      background: #0f2b4a;
+    }
+
+    .odd-contact-form {
+      width: 100%;
+      max-width: 520px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+    }
+
+    .odd-contact-form h2 {
+      font-size: 1.8rem;
+      color: var(--dark);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .odd-contact-form p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .odd-name-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .odd-field {
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .odd-field label {
+      display: block;
+      font-size: 0.85rem;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .odd-input,
+    .odd-select {
+      width: 100%;
+      padding: 10px 0px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    .odd-input:focus,
+    .odd-select:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 5px rgba(255, 107, 26, 0.3);
+    }
+
+    .odd-error {
+      color: red;
+      font-size: 0.8rem;
+      margin-top: 3px;
+      display: none;
+    }
+
+    .odd-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .odd-checkbox input {
+      margin-top: 4px;
+    }
+
+    .odd-checkbox label {
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    .add-btn {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      background: var(--gradient);
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .odd-btn:hover {
+      background: #ff8533;
+      box-shadow: 0 4px 15px rgba(255, 107, 26, 0.5);
+    }
+
+    .odd-footer-note {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      color: #555;
+      text-align: left;
+    }
+
+    .odd-footer-note a {
+      color: var(--orange);
+      text-decoration: none;
+    }
