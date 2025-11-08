@@ -25,42 +25,27 @@ links.forEach(link => {
     });
 });
 
-// HERO SLIDER
+// HERO SECTION OF HOME PAGE
 
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+const slides = document.querySelectorAll(".nova-omne-slide");
+const dots = document.querySelectorAll(".nova-omne-dot");
 let current = 0;
 
-function updateSlides(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove("active", "prev", "next");
-
-        if (i === index) slide.classList.add("active");
-        else if (i === (index + 1) % slides.length)
-            slide.classList.add("next");
-        else if (i === (index - 1 + slides.length) % slides.length)
-            slide.classList.add("prev");
-    });
-
-    dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-    });
+function showSlide(index) {
+  slides.forEach((s, i) => {
+    s.classList.toggle("active", i === index);
+    dots[i].classList.toggle("active", i === index);
+  });
 }
 
-function nextSlide() {
-    current = (current + 1) % slides.length;
-    updateSlides(current);
+function autoSlide() {
+  showSlide(current);
+  current = (current + 1) % slides.length;
 }
 
-dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-        current = i;
-        updateSlides(current);
-    });
-});
+setInterval(autoSlide, 4000);
 
-// Auto-slide every 4 seconds
-setInterval(nextSlide, 4000);
+
 
 // footer/
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -129,7 +114,7 @@ cards.forEach((card) => {
     btn.addEventListener("click", (e) => {
         e.stopPropagation();
 
-        // If this card is already active, collapse it
+        
         if (card.classList.contains("active")) {
             card.classList.remove("active");
             btn.classList.remove("fa-times");
@@ -137,7 +122,7 @@ cards.forEach((card) => {
             return;
         }
 
-        // Remove active state from all cards first
+        
         cards.forEach((c) => {
             c.classList.remove("active");
             const icon = c.querySelector(".toggle-btn i");
@@ -145,14 +130,14 @@ cards.forEach((card) => {
             icon.classList.add("fa-plus");
         });
 
-        // Expand current card
+        
         card.classList.add("active");
         btn.classList.remove("fa-plus");
         btn.classList.add("fa-times");
     });
 });
 
-// Keep first card open by default on refresh
+
 window.addEventListener("DOMContentLoaded", () => {
     const firstCard = document.querySelector(".industry-card:first-child");
     if (firstCard) {

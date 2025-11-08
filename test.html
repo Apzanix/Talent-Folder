@@ -479,9 +479,179 @@
             }
         }
 
+/* HERO SECTION */
+.nova-omne-hero {
+  background: var(--blue-gradient);
+  color: var(--light);
+  padding: 8rem 2rem;
+}
 
+.nova-omne-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4rem;
+  max-width: 1300px;
+  margin: auto;
+}
 
+/* --- Text Section --- */
+.nova-omne-content {
+  flex: 1 1 45%;
+  max-width: 600px;
+  margin-top: -72px;
+}
 
+.nova-omne-content h1 {
+  font-size: 3.6rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.nova-omne-content h1 span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nova-omne-content p {
+  font-size: 1.2rem;
+  color: #e6ebf5;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.nova-omne-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nova-omne-btn {
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nova-omne-btn.primary {
+  background: var(--gradient);
+  color: #fff;
+}
+
+.nova-omne-btn.secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.nova-omne-btn.secondary:hover {
+  background: #ffffff20;
+}
+
+/* --- Slider --- */
+.nova-omne-slider {
+  position: relative;
+  flex: 1 1 45%;
+  max-width: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.nova-omne-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.nova-omne-slide {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.nova-omne-slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.nova-omne-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* --- DOTS with animation timer --- */
+
+.nova-omne-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.nova-omne-dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background: #aaa; /* grey inactive color */
+  border-radius: 50px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* When active — dot becomes long pill */
+.nova-omne-dot.active {
+  width: 80px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Inner orange fill bar animation */
+.nova-omne-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--orange);
+  border-radius: 50px;
+  transition: width 4s linear;
+}
+
+/* Run animation only on the active dot */
+.nova-omne-dot.active .nova-omne-fill {
+  animation: nova-omne-bar 4s linear forwards;
+}
+
+@keyframes nova-omne-bar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .nova-omne-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nova-omne-content {
+    max-width: 100%;
+  }
+
+  .nova-omne-content h1 {
+    font-size: 2.6rem;
+  }
+}
 
 
 
@@ -514,7 +684,52 @@
     </nav>
 
 <!-- HERO SECTION -->
+ <section class="nova-omne-hero">
+  <div class="nova-omne-container">
+    <div class="nova-omne-content">
+      <h1>
+        The Enterprise <span>AI Platform</span> for People, Money & Agents.
+      </h1>
+      <p>
+        Experience the future of intelligent enterprise — where automation, finance, and workforce come together seamlessly.
+      </p>
+      <div class="nova-omne-buttons">
+        <button class="nova-omne-btn primary">Explore AI in Workday</button>
+        <button class="nova-omne-btn secondary">Learn More</button>
+      </div>
+    </div>
+
+    <div class="nova-omne-slider">
+     <div class="nova-omne-slides">
+  <div class="nova-omne-slide active">
+    <img src="img/h1.png" alt="Innovation" />
+  </div>
+  <div class="nova-omne-slide">
+    <img src="img/h2.png" alt="AI Collaboration" />
+  </div>
+  <div class="nova-omne-slide">
+    <img src="img/h3.png" alt="Automation" />
+  </div>
  
+ <div class="nova-omne-slide">
+    <img src="img/h4.png" alt="Automation" />
+  </div>
+
+</div>
+
+
+      <div class="nova-omne-dots">
+        <span class="nova-omne-dot active"><span class="nova-omne-fill"></span></span>
+        <span class="nova-omne-dot"><span class="nova-omne-fill"></span></span>
+        <span class="nova-omne-dot"><span class="nova-omne-fill"></span></span>
+        <span class="nova-omne-dot"><span class="nova-omne-fill"></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
 
 
@@ -560,9 +775,9 @@
                     <div class="footer-col">
                         <h4>About Us</h4>
                         <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="index.html">Company</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
 
@@ -581,7 +796,6 @@
                         <h4>Resources</h4>
                         <ul>
                             <li><a href="#">Blog</a></li>
-                            <li><a href="#">Case Studies</a></li>
                             <li><a href="#">Documentation</a></li>
                             <li><a href="#">Support Center</a></li>
                             <li><a href="#">Community</a></li>
@@ -657,7 +871,25 @@
         document.getElementById("year").textContent = new Date().getFullYear();
 
 
-// MAIN FAQ PAGE
+const slides = document.querySelectorAll(".nova-omne-slide");
+const dots = document.querySelectorAll(".nova-omne-dot");
+let current = 0;
+
+function showSlide(index) {
+  slides.forEach((s, i) => {
+    s.classList.toggle("active", i === index);
+    dots[i].classList.toggle("active", i === index);
+  });
+}
+
+function autoSlide() {
+  showSlide(current);
+  current = (current + 1) % slides.length;
+}
+
+setInterval(autoSlide, 4000);
+
+
 
 
 

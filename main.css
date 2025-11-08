@@ -217,129 +217,184 @@ body {
 }
 
 /* HERO SECTION */
-.hero-section {
-  background: linear-gradient(to bottom right, #021833, #0a2a66);
+.nova-omne-hero {
+  background: var(--blue-gradient);
+  color: var(--light);
+  padding: 8rem 2rem;
+}
+
+.nova-omne-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  /* full page height */
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4rem;
+  max-width: 1300px;
+  margin: auto;
 }
 
-.slider {
-  position: relative;
-  width: 90%;
-  max-width: 1200px;
-  height: 80vh;
-  perspective: 1000px;
-  overflow: hidden;
+/* --- Text Section --- */
+.nova-omne-content {
+  flex: 1 1 45%;
+  max-width: 600px;
+  margin-top: -72px;
 }
 
-
-.slides {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 99%;
-  transition: all 0.6s ease;
+.nova-omne-content h1 {
+  font-size: 3.6rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
 }
 
-.slide {
-  position: absolute;
-  width: 65%;
-  height: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.7s ease;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  opacity: 0.6;
-  transform: scale(0.85);
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.slide.active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 3;
-  border: 2px solid #ff8c42;
-  box-shadow: 0 0 40px rgba(255, 140, 66, 0.6);
-}
-
-.slide.prev {
-  transform: translateX(-220px) scale(0.9);
-  z-index: 2;
-}
-
-.slide.next {
-  transform: translateX(220px) scale(0.9);
-  z-index: 2;
-}
-
-.content {
-  position: absolute;
-  bottom: 40px;
-  left: 30px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px 25px;
-  border-radius: 10px;
-  color: #fff;
-  max-width: 80%;
-}
-
-.content h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.content h3 span {
-  color: #ffc93c;
-}
-
-.content h2 {
-  margin: 10px 0;
-  font-size: 1.8rem;
-  background: linear-gradient(to right, #b88ef5, #ffbe55);
+.nova-omne-content h1 span {
+  background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.content p {
-  font-size: 0.9rem;
-  color: #ddd;
+.nova-omne-content p {
+  font-size: 1.2rem;
+  color: #e6ebf5;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
-.controls {
-  position: absolute;
-  bottom: -31px;
-  left: 50%;
-  transform: translateX(-50%);
+.nova-omne-buttons {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-
-  border-radius: 50%;
+.nova-omne-btn {
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.dot.active {
-  background: #fff;
-  width: 20px;
+.nova-omne-btn.primary {
+  background: var(--gradient);
+  color: #fff;
+}
+
+.nova-omne-btn.secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.nova-omne-btn.secondary:hover {
+  background: #ffffff20;
+}
+
+/* --- Slider --- */
+.nova-omne-slider {
+  position: relative;
+  flex: 1 1 45%;
+  max-width: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.nova-omne-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.nova-omne-slide {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.nova-omne-slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.nova-omne-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* --- DOTS with animation timer --- */
+
+.nova-omne-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.nova-omne-dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background: #aaa; /* grey inactive color */
+  border-radius: 50px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* When active — dot becomes long pill */
+.nova-omne-dot.active {
+  width: 80px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Inner orange fill bar animation */
+.nova-omne-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--orange);
+  border-radius: 50px;
+  transition: width 4s linear;
+}
+
+/* Run animation only on the active dot */
+.nova-omne-dot.active .nova-omne-fill {
+  animation: nova-omne-bar 4s linear forwards;
+}
+
+@keyframes nova-omne-bar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .nova-omne-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nova-omne-content {
+    max-width: 100%;
+  }
+
+  .nova-omne-content h1 {
+    font-size: 2.6rem;
+  }
+}
+
 /* ABOUT US */
-/* 
+
 .industry-section {
   background: var(--blue-gradient);
   padding: 4.5rem 2rem;
@@ -512,7 +567,7 @@ body {
     height: 56px;
     font-size: 1.4rem;
   }
-} */
+}
 
 /* Illuminate-wrapper */
 
@@ -688,7 +743,7 @@ body {
 
 /* Trust Section */
 .trust-section {
-  background: #001f3f;
+  background: var(--blue-gradient);
   color: var(--light);
   text-align: center;
   padding: 100px 20px 80px;
